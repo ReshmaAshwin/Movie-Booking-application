@@ -1,0 +1,32 @@
+.up-movies{
+   background-color:  #ff9999; 
+   padding: 8px;
+   display: flex;
+   justify-content: center;
+   font-size: 1rem;
+}
+.flex-container{
+   display: flex;
+   justify-content: space-between;
+   height: 100px;
+   
+
+}
+.left{
+   
+   width: 76%;
+}
+.padding{
+   padding: 100px;
+}
+.right{
+   margin-top: 50;
+   width: 24%;
+}
+.but{
+   display: flex;
+   justify-content: space-around;
+}
+.heading{
+   color:rgb(71, 92, 163);
+}
