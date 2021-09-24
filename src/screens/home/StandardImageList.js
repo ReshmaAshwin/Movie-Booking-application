@@ -4,8 +4,10 @@ import ImageList from '@material-ui/core/ImageList';
 import ImageListItem from '@material-ui/core/ImageListItem';
 import ImageListItemBar from '@material-ui/core/ImageListItemBar';
 import IconButton from '@material-ui/core/IconButton';
+import {Link} from 'react-router-dom';
 
 import moviesData from '../../common/moviesData';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -49,8 +51,9 @@ const useStyles = makeStyles((theme) => ({
 export default function SingleLineImageList() {
   const classes = useStyles();
 
-  return (
-    <div className={classes.root}>
+  return (<div>
+    <Link to="details">
+        <div className={classes.root}>
       <ImageList sx={{ width: 300, height: 250 }} cols={5} rowHeight={250} className={classes.imageList}>
         {moviesData.map((item) => (
           <ImageListItem key={item.id}>
@@ -70,6 +73,9 @@ export default function SingleLineImageList() {
           </ImageListItem>
         ))}
       </ImageList>
+    </div>
+    </Link>
+     
     </div>
   );
 }

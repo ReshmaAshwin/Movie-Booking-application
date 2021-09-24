@@ -1,12 +1,13 @@
 import { ImageList } from '@material-ui/core';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 import './index.css';
+import App from './App';
 
 
-import Home from "./screens/home/Home";
 
-ReactDOM.render(<Home />,document.getElementById('root')
+ReactDOM.render(<BrowserRouter><App /></BrowserRouter>,document.getElementById('root')
   
 );
 

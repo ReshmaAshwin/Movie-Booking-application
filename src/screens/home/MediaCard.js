@@ -16,23 +16,38 @@ import './Home.css';
 import genres from './genres'
 import artists from './Artist'
 import Checkbox from '@mui/material/Checkbox';
-
+import moviesData from '../../common/moviesData';
 
 
 export default function MediaCard() {
+
+  const onChange=(args)=>{
+    var stored=args.target.value;
+    var filteredMovies= moviesData.title.filter((movie)=>{
+      return(stored===filteredMovies);
+
+    })
+  }
+  
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
         
         
-        height="240"
+        width="240"
         
     
       />
       <CardContent>
         <h3 className="heading">FIND MOVIES BY:</h3>
         <ValidatorForm>
-        <TextField sx={{ m: 1, minWidth: 250 }} id="standard-basic" label="Movie Name" variant="standard" />
+        <TextField sx={{ m: 1, minWidth: 250 }} 
+        id="standard-basic" 
+        label="Movie Name" 
+        variant="standard"
+        onChange={onChange}
+        validators={["required"]} 
+        errorMessages={["field cannot be empty"]} />
         
         <FormControl  variant="standard" sx={{ m: 1, minWidth: 250 }}>
         <InputLabel id="demo-simple-select-standard-label">Genres</InputLabel>
@@ -58,8 +73,8 @@ export default function MediaCard() {
             label="Artist">
           
             {artists.map((art)=>(
-                <MenuItem value={art.id}>
-                 <Checkbox /> {art.first_name} {art.last_name}
+                <MenuItem value={art.id} >
+                {art.first_name} {art.last_name}
                   </MenuItem>
             ))}
           
@@ -67,14 +82,15 @@ export default function MediaCard() {
       </FormControl>
       <TextField sx={{ m: 1, minWidth: 250 }} type="date" id="standard-basic" label="Release Date start" variant="standard" />
       <TextField sx={{ m: 1, minWidth: 250 }} type="date" id="standard-basic" label="Release Date start" variant="standard" />
-          </ValidatorForm>
-      </CardContent>
       <CardActions className="but">
-      <Button  variant="contained" color="primary" >
+      <Button type="submit" variant="contained" color="primary" >
   Apply
 </Button>
         
       </CardActions>
+          </ValidatorForm>
+      </CardContent>
+     
     </Card>
   );
 }
