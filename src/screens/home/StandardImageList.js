@@ -52,12 +52,15 @@ export default function SingleLineImageList() {
   const classes = useStyles();
 
   return (<div>
-    <Link to="details">
+    
         <div className={classes.root}>
+        <Link to="/details">
       <ImageList sx={{ width: 300, height: 250 }} cols={5} rowHeight={250} className={classes.imageList}>
+      
         {moviesData.map((item) => (
           <ImageListItem key={item.id}>
             <img src={item.poster_url} alt={item.title} />
+            
             <ImageListItemBar
               title={item.title}
               classes={{
@@ -71,10 +74,13 @@ export default function SingleLineImageList() {
               }
             />
           </ImageListItem>
+         
         ))}
+        
       </ImageList>
+      </Link>
     </div>
-    </Link>
+    
      
     </div>
   );
